@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COVID-19 Cases Finder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+
+<body>
+    <section class="hero is-danger">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Let's Find The COVID-19 Cases
+                </h1>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST" action="/">
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" style="width: 250px;" name="city_name" type="text" placeholder="Country Name - India">
+                                <input class="input" name="city_name1" style="width: 250px;" type="text" placeholder="confirmed/deaths/recovered">
+                            </div>
+                            <div class="control">
+                                <button class="button is-light" style="width: 250px;">
+                                    Find The Cases
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <% if(weather !== null){ %>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-50x50">
+                                  
+                                </figure>
+                            </div>
+                            <div class="media-content">
+                                <div class="content">
+                                        <span class="title"></span>
+                                        <br>
+                                        <img style="margin-left: 0px; margin-right: 100px;" src="https://www.fda.gov/files/covid19-1600x900.jpg" alt="">
+                                        <h1>Status - <%= weather[weather.length - 1].Status%></h1>
+                                        <h2>Cases - <span style="text-align: center;" class="subtitle"><%=weather[weather.length - 1].Cases%></span> </h2>
+                                        <br> 
+                                        Date - <%= weather[weather.length - 1].Date%>
+                                        <br>
+                                        Country Code - <%= weather[weather.length - 1].CountryCode %>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <% } %>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html
